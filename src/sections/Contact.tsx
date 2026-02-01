@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Mail, Phone, MapPin, Send, Linkedin, FileText, Github, ArrowUpRight } from 'lucide-react';
@@ -96,17 +97,27 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formRef.current) return;
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -208,11 +219,10 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 rounded-xl font-medium flex items-center justify-center gap-2 transition-all duration-300 ${
-                    isSubmitted
+                  className={`w-full py-4 rounded-xl font-medium flex items-center justify-center gap-2 transition-all duration-300 ${isSubmitted
                       ? 'bg-green-500/20 text-green-400 border border-green-500/30'
                       : 'bg-cyan text-dark-bg hover:bg-cyan/90'
-                  }`}
+                    }`}
                 >
                   {isSubmitting ? (
                     <>
@@ -284,7 +294,7 @@ const Contact = () => {
                 <span className="text-cyan font-medium">Available for Opportunities</span>
               </div>
               <p className="text-white/70 text-sm">
-                Currently seeking entry-level positions in Data Analytics, Business Operations, 
+                Currently seeking entry-level positions in Data Analytics, Business Operations,
                 or IT Support in the United States.
               </p>
             </div>

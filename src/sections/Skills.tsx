@@ -42,9 +42,9 @@ const Skills = () => {
       id: 'data',
       title: 'Data & Analytics',
       skills: [
-        { name: 'SQL', icon: Database, level: 95 },
-        { name: 'Python', icon: Code2, level: 90 },
-        { name: 'Tableau', icon: BarChart3, level: 90 },
+        { name: 'SQL', icon: Database, level: 90 },
+        { name: 'Python', icon: Code2, level: 85 },
+        { name: 'Tableau', icon: BarChart3, level: 88 },
         { name: 'Excel', icon: FileSpreadsheet, level: 95 },
         { name: 'Power BI', icon: LineChart, level: 80 },
         { name: 'Statistical Analysis', icon: Calculator, level: 85 },
@@ -54,10 +54,10 @@ const Skills = () => {
       id: 'programming',
       title: 'Programming',
       skills: [
-        { name: 'Python', icon: Code2, level: 90 },
-        { name: 'R', icon: Calculator, level: 80 },
-        { name: 'JavaScript', icon: Code2, level: 7905 },
-        { name: 'HTML/CSS', icon: Palette, level: 90 },
+        { name: 'Python', icon: Code2, level: 85 },
+        { name: 'R', icon: Calculator, level: 70 },
+        { name: 'JavaScript', icon: Code2, level: 75 },
+        { name: 'HTML/CSS', icon: Palette, level: 80 },
       ],
     },
     {

@@ -118,14 +118,14 @@ const Hero = () => {
   // 3D tilt effect on mouse move
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!imageRef.current) return;
-    
+
     const rect = imageRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const rotateX = (e.clientY - centerY) / 20;
     const rotateY = (centerX - e.clientX) / 20;
-    
+
     gsap.to(imageRef.current, {
       rotateX: Math.max(-15, Math.min(15, rotateX)),
       rotateY: Math.max(-15, Math.min(15, rotateY)),
@@ -144,7 +144,7 @@ const Hero = () => {
     });
   };
 
-  const nameText = "Sazzadul Islam Shovon";
+
 
   return (
     <section
@@ -176,20 +176,30 @@ const Hero = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             {/* Name */}
-            <h1
-              ref={nameRef}
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 overflow-hidden"
-            >
-              {nameText.split('').map((char, index) => (
-                <span
-                  key={index}
-                  className="char inline-block"
-                  style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
-                >
-                  {char === ' ' ? '\u00A0' : char}
-                </span>
-              ))}
-            </h1>
+            <div ref={nameRef} className="font-heading font-bold text-white mb-4 overflow-hidden">
+              <div className="text-4xl sm:text-5xl lg:text-6xl mb-2">
+                {"Sazzadul Islam".split('').map((char, index) => (
+                  <span
+                    key={`first-${index}`}
+                    className="char inline-block"
+                    style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </span>
+                ))}
+              </div>
+              <div className="text-4xl sm:text-5xl lg:text-6xl text-cyan">
+                {"Shovon".split('').map((char, index) => (
+                  <span
+                    key={`second-${index}`}
+                    className="char inline-block"
+                    style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </span>
+                ))}
+              </div>
+            </div>
 
             {/* Title */}
             <p
@@ -204,7 +214,7 @@ const Hero = () => {
               ref={descRef}
               className="text-white/70 text-lg max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
-              Transforming complex data into actionable insights. Specializing in data visualization, 
+              Transforming complex data into actionable insights. Specializing in data visualization,
               statistical analysis, and business intelligence solutions to drive strategic decision-making.
             </p>
 
@@ -221,14 +231,15 @@ const Hero = () => {
                 View My Work
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
               </a>
-              
-              <button
-                onClick={() => alert('CV download coming soon!')}
+
+              <a
+                href="/resume.pdf"
+                download="Sazzadul_Islam_Resume.pdf"
                 className="px-6 py-3 bg-white/5 text-white border border-white/20 rounded-lg hover:bg-white/10 hover:border-cyan/50 transition-all duration-300 flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 Download CV
-              </button>
+              </a>
             </div>
 
             {/* Social Links */}
@@ -263,11 +274,11 @@ const Hero = () => {
             <div
               ref={imageRef}
               className="relative"
-              style={{ perspective: '1000px', transformStyle: 'preserve-3d' }}
+              style={{ perspective: '900px', transformStyle: 'preserve-3d' }}
             >
               {/* Glow Ring */}
               <div className="absolute inset-0 rounded-full bg-cyan/20 blur-3xl scale-110 animate-pulse" />
-              
+
               {/* Image Container */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-cyan/30 glow-cyan animate-float">
                 <img
@@ -275,7 +286,7 @@ const Hero = () => {
                   alt="Sazzadul Islam Shovon"
                   className="w-full h-full object-cover"
                 />
-                
+
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-cyan/20 via-transparent to-transparent" />
               </div>

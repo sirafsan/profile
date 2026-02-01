@@ -146,7 +146,7 @@ const About = () => {
             <div ref={contentRef} className="space-y-6">
               <p className="text-white/70 text-lg leading-relaxed">
                 I am a results-driven Data Analyst with a Master's in Information Systems from{' '}
-                <span className="text-cyan font-medium">Central Michigan University</span>. 
+                <span className="text-cyan font-medium">Central Michigan University</span>.
                 My expertise lies in bridging the gap between raw data and strategic decision-making.
               </p>
 
@@ -154,12 +154,12 @@ const About = () => {
                 With a strong foundation in{' '}
                 <span className="text-cyan hover:glow-cyan-text transition-all cursor-default">SQL</span>,{' '}
                 <span className="text-cyan hover:glow-cyan-text transition-all cursor-default">Python</span>, and{' '}
-                <span className="text-cyan hover:glow-cyan-text transition-all cursor-default">Tableau</span>, 
+                <span className="text-cyan hover:glow-cyan-text transition-all cursor-default">Tableau</span>,
                 I have successfully delivered insights that increased operational efficiency by 25% in my previous roles.
               </p>
 
               <p className="text-white/70 text-lg leading-relaxed">
-                My background in Electrical & Electronic Engineering from Daffodil International University 
+                My background in Electrical & Electronic Engineering from Daffodil International University
                 gives me a unique analytical edge, allowing me to approach complex problems with systematic precision.
               </p>
             </div>
@@ -196,10 +196,10 @@ const About = () => {
                 alt="Working with data"
                 className="w-full h-full object-cover"
               />
-              
+
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent" />
-              
+
               {/* Floating Card */}
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-dark-card/90 backdrop-blur-xl border border-white/10">
                 <div className="flex items-center gap-4">
