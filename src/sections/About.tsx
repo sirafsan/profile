@@ -13,7 +13,7 @@ const About = () => {
   const statsRef = useRef<HTMLDivElement>(null);
 
   const stats = [
-    { icon: TrendingUp, value: 5, suffix: '+', label: 'Years Experience' },
+    { icon: TrendingUp, value: 2, suffix: '+', label: 'Years Experience' },
     { icon: Users, value: 50, suffix: '+', label: 'Projects Completed' },
     { icon: Award, value: 6, suffix: '', label: 'Publications' },
     { icon: Zap, value: 25, suffix: '%', label: 'Efficiency Boost' },
